@@ -1,0 +1,36 @@
+name: usermanagement
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment:
+  sdk: '>=2.17.3 <3.0.0'
+
+dependencies:
+  cloud_firestore: ^3.1.17
+  cupertino_icons: ^1.0.2
+  firebase_auth: ^3.3.19
+  firebase_core: ^1.17.1
+  firebase_storage: ^10.2.17
+  flutter:
+    sdk: flutter
+  fluttertoast: ^8.0.9
+  get: 4.6.5
+  image_picker: ^0.8.5+3
+  shared_preferences: ^2.0.15
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+  lints: 2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/clipimage4.jpg
+    - assets/images/clipimage5.jpg
+    - assets/images/clipimage3.jpg
+    - assets/images/facebooklogo.png
+    - assets/images/googleLogo.png
+    - assets/images/profilebg.jpg
+    - assets/images/avatar.png
