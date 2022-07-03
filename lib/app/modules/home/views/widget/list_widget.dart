@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:usermanagement/app/data/user_data_model.dart';
 import 'package:usermanagement/app/modules/home/controllers/home_controller.dart';
 
 class ListWidget extends StatelessWidget {
@@ -11,12 +12,15 @@ class ListWidget extends StatelessWidget {
 
     return ListView.separated(
       itemBuilder: (context, index) {
+        final dataAtIndex = homeController.userDataList[index] as UserDataModel;
         return ListTile(
           leading: CircleAvatar(),
           title: Text(
-            "Contact Name",
+            dataAtIndex.name!,
             style: TextStyle(color: Colors.white),
           ),
+          subtitle:
+              Text(dataAtIndex.contact!, style: TextStyle(color: Colors.white)),
         );
       },
       separatorBuilder: (context, index) {
@@ -24,7 +28,7 @@ class ListWidget extends StatelessWidget {
           height: 10,
         );
       },
-      itemCount: 10,
+      itemCount: homeController.userDataList.length,
     );
   }
 }

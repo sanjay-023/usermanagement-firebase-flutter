@@ -10,7 +10,10 @@ import '../controllers/home_controller.dart';
 class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
+    final homeController = Get.put(HomeController());
     final profileController = Get.put(ProfileController());
+    profileController.onInit();
+    homeController.onInit();
 
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 1, 23, 42),
@@ -33,10 +36,14 @@ class HomeView extends GetView<HomeController> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          homeController.addDataPopup();
+        },
         child: Icon(Icons.add),
       ),
-      body: ListWidget(),
+      body: GetBuilder<HomeController>(builder: (controller) {
+        return ListWidget();
+      }),
     );
   }
 }

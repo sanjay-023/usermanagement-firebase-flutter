@@ -8,7 +8,9 @@ class SplashView extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     final splashController = Get.put(SplashController());
+
     splashController.onInit();
+
     return Scaffold(
       body: Container(
         height: double.infinity,

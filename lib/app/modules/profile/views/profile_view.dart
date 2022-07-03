@@ -13,7 +13,6 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     final profileController = Get.put(ProfileController());
-    profileController.onInit();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
