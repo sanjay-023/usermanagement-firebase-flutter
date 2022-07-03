@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:usermanagement/app/data/user_data_model.dart';
+import 'package:usermanagement/app/modules/home/views/home_view.dart';
 import 'package:usermanagement/app/modules/home/views/widget/add_data.dart';
 
 class HomeController extends GetxController {
@@ -55,6 +56,8 @@ class HomeController extends GetxController {
   addDataPopup() {
     Get.defaultDialog(
         title: "Add contact",
+        titleStyle: TextStyle(color: Colors.white),
+        backgroundColor: Color.fromARGB(255, 3, 38, 67),
         titlePadding: EdgeInsets.all(20),
         contentPadding: EdgeInsets.all(20),
         content: Column(
@@ -77,13 +80,23 @@ class HomeController extends GetxController {
                 addUserData();
                 nameTextController.clear();
                 phoneTextController.clear();
-                Get.back();
+                Get.offAll(HomeView());
               },
+              style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(255, 10, 94, 124),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  minimumSize: const Size(100, 40)),
               child: Text("Add")),
           ElevatedButton(
               onPressed: () {
                 Get.back();
               },
+              style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(255, 10, 94, 124),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  minimumSize: const Size(100, 40)),
               child: Text("Cancel"))
         ]);
   }
@@ -102,6 +115,5 @@ class HomeController extends GetxController {
     userDataList =
         List.from(userData.docs.map((doc) => UserDataModel.fromSnapshot(doc)));
     update();
-    print(userDataList);
   }
 }

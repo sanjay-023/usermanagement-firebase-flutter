@@ -14,7 +14,9 @@ class ListWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         final dataAtIndex = homeController.userDataList[index] as UserDataModel;
         return ListTile(
-          leading: CircleAvatar(),
+          leading: CircleAvatar(
+            backgroundImage: AssetImage("assets/images/avatar.png"),
+          ),
           title: Text(
             dataAtIndex.name!,
             style: TextStyle(color: Colors.white),

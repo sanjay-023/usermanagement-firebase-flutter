@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:usermanagement/app/modules/home/views/widget/list_widget.dart';
+import 'package:usermanagement/app/modules/home/views/widget/shimmer_widget.dart';
 import 'package:usermanagement/app/modules/profile/controllers/profile_controller.dart';
 import 'package:usermanagement/app/modules/profile/views/profile_view.dart';
 
@@ -11,6 +12,7 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     final homeController = Get.put(HomeController());
+
     final profileController = Get.put(ProfileController());
     profileController.onInit();
     homeController.onInit();
@@ -42,7 +44,9 @@ class HomeView extends GetView<HomeController> {
         child: Icon(Icons.add),
       ),
       body: GetBuilder<HomeController>(builder: (controller) {
-        return ListWidget();
+        return homeController.userDataList.isEmpty
+            ? ShimmerWidget()
+            : ListWidget();
       }),
     );
   }

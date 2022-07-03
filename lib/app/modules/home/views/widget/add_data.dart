@@ -11,7 +11,7 @@ class AllDataWidget extends StatelessWidget {
     return Container(
       width: 350,
       decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 253, 226, 186),
+          color: Color.fromARGB(255, 137, 181, 246),
           borderRadius: BorderRadius.circular(30)),
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: TextField(
