@@ -18,6 +18,7 @@ class BirthdayWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final profileController = Get.put(ProfileController());
     profileController.birthTextController.text = detailtext;
+    profileController.buttonIndex = 2;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
@@ -35,14 +36,27 @@ class BirthdayWidget extends StatelessWidget {
         child: GetBuilder<ProfileController>(builder: (controller) {
           return ListTile(
               leading: Icon(textIcon, color: Color.fromARGB(255, 2, 71, 127)),
-              title: profileController.isBirthTextField == true
-                  ? TextField(
-                      controller: profileController.birthTextController,
-                    )
-                  : Text(detailtext),
+              title: InkWell(
+                onTap: () {
+                  profileController.changeBirthTextField();
+                  profileController.updateButtonIndex(2);
+                  profileController.selectdate(context);
+                  print(profileController.buttonIndex);
+                },
+                child: Text(
+                  profileController.userModel.birthday == null
+                      ? "Tap to add your birthday"
+                      : '${profileController.selectedDate.day} ${profileController.month[profileController.selectedDate.month - 1]} ${profileController.selectedDate.year}',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 105, 105, 105)),
+                ),
+              ),
               trailing: IconButton(
                   onPressed: () {
                     profileController.changeBirthTextField();
+                    profileController.selectdate(context);
+                    profileController.updateButtonIndex(2);
                     print(profileController.isBirthTextField);
                   },
                   icon: Icon(Icons.edit)));

@@ -1,11 +1,20 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class UserModel {
   String? uid;
   String? name;
   String? email;
   String? phone;
   String? imgageurl;
+  Timestamp? birthday;
 
-  UserModel({this.uid, this.name, this.email, this.phone, this.imgageurl});
+  UserModel(
+      {this.uid,
+      this.name,
+      this.email,
+      this.phone,
+      this.imgageurl,
+      this.birthday});
 
 //receiving data from firestore
   factory UserModel.fromMap(map) {
@@ -14,7 +23,8 @@ class UserModel {
         name: map["name"],
         email: map["email"],
         phone: map["phone"],
-        imgageurl: map["imageurl"]);
+        imgageurl: map["imageurl"],
+        birthday: map['birthday']);
   }
 
   // sending data to firestore
@@ -24,7 +34,8 @@ class UserModel {
       'name': name,
       'email': email,
       'phone': phone,
-      'imageurl': imgageurl
+      'imageurl': imgageurl,
+      'birthday': birthday
     };
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:usermanagement/app/modules/home/views/home_view.dart';
 import 'package:usermanagement/app/modules/profile/controllers/profile_controller.dart';
@@ -23,11 +24,12 @@ class SignoutButton extends StatelessWidget {
                 minimumSize: const Size(180, 40)))
         : ElevatedButton(
             onPressed: () {
-              //checkLogin(context);
-              profileController.updatePhone();
-              print(profileController.userModel.phone);
+              profileController.buttonIndex == 1
+                  ? profileController.updatePhone()
+                  : profileController.updateBirthday();
 
               Get.off(HomeView());
+              Fluttertoast.showToast(msg: "Successfully Updated!");
             },
             child: Text("Save"),
             style: ElevatedButton.styleFrom(

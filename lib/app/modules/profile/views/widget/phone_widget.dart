@@ -18,6 +18,7 @@ class PhoneWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final profileController = Get.put(ProfileController());
     profileController.phoneTextController.text = detailtext;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
@@ -40,12 +41,14 @@ class PhoneWidget extends StatelessWidget {
                       controller: profileController.phoneTextController,
                     )
                   : GetBuilder<ProfileController>(builder: (controller) {
-                      return Text(profileController.userModel.phone!);
+                      return Text(detailtext);
                     }),
               trailing: IconButton(
                   onPressed: () {
                     profileController.changePhoneTextField();
-                    print(profileController.isPhoneTextField);
+                    profileController.updateButtonIndex(1);
+                    print(profileController.buttonIndex);
+                    print(detailtext);
                   },
                   icon: Icon(Icons.edit)));
         }),
