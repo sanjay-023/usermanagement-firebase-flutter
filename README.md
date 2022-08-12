@@ -1,16 +1,19 @@
-# usermanagement
+# usermanagement app
 
-A new Flutter project.
+User Management is a simple app that stores the details of others built with flutter and firebase as backend
 
 ## Getting Started
+The app is built in MVC architecture with Get X as state management and firebase as backend. Users can sign up with their email id. Also the users can upload their image as avatar. The database can store users phone number, email and their birthday.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Libraries & packages used :
+- Getx
+- get_cli
+- firebase_core
+- firebase_firestore
+- firebase_storage
+- firebase_auth
+- shared_preference
+- image_picker
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
